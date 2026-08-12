@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Procare Media Downloader",
+  "version": "0.3.1",
+  "description": "Privately save Procare family photos and videos to your computer—without tracking, ads, or cloud uploads.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://schools.procareconnect.com/*",
+    "https://api-school.procareconnect.com/*"
+  ],
+  "action": {
+    "default_title": "Procare Media Downloader",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://schools.procareconnect.com/*"
+      ],
+      "js": [
+        "shared.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'"
+  }
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Procare Media Downloader</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mark" aria-hidden="true">↓</div>
+        <div>
+          <h1>Procare Media Downloader</h1>
+          <p class="subtitle">Private downloads. No tracking. No cloud.</p>
+        </div>
+      </header>
+
+      <div id="main-view">
+        <section id="notice" class="notice">
+          <strong>Your family's privacy comes first.</strong>
+          Photos and videos are downloaded directly from Procare to your computer. Your login, media, and family information are never sent to an outside developer or uploaded to a separate server.
+          <button id="more-info" class="info-link" type="button">More info</button>
+        </section>
+
+        <section class="long-run-note">
+          Large archive? Keep this Procare tab open and your computer awake. Completed files can be resumed safely.
+        </section>
+
+        <section id="setup">
+          <label for="child">Child</label>
+          <select id="child" disabled>
+            <option>Loading children…</option>
+          </select>
+
+          <div class="date-grid">
+            <div>
+              <label for="start-date">From</label>
+              <input id="start-date" type="date" required>
+            </div>
+            <div>
+              <label for="end-date">To</label>
+              <input id="end-date" type="date" required>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>Include</legend>
+            <label class="check"><input id="photos" type="checkbox" checked> Photos</label>
+            <label class="check"><input id="videos" type="checkbox" checked> Videos</label>
+          </fieldset>
+
+          <button id="start" class="primary" disabled>Download media</button>
+        </section>
+
+        <section id="progress" class="progress" hidden>
+          <p id="status-message">Ready.</p>
+          <div class="counts">
+            <span><strong id="downloaded">0</strong> saved</span>
+            <span><strong id="skipped">0</strong> already saved</span>
+            <span><strong id="failed">0</strong> failed</span>
+          </div>
+          <button id="cancel" class="secondary">Cancel</button>
+        </section>
+
+        <footer>
+          <button id="clear-history" class="link-button">Clear local download history</button>
+          <p id="error" role="alert"></p>
+        </footer>
+      </div>
+
+      <section id="info-view" class="info-view" hidden>
+        <div class="info-heading">
+          <h2>How it works</h2>
+          <button id="back-to-main" class="back-button" type="button">← Back</button>
+        </div>
+        <ol>
+          <li>The extension runs only on the Procare family website and only after you open it.</li>
+          <li>It uses your existing Procare sign-in inside that tab. Your password and session token are never sent to an outside developer or stored by the extension.</li>
+          <li>It asks Procare for authorized activity records one month at a time, newest first.</li>
+          <li>Photo and video URLs supplied by Procare are downloaded over HTTPS, one completed file at a time.</li>
+          <li>Chrome stores only media identifiers and completion times locally so interrupted downloads can resume without starting over.</li>
+          <li>There is no developer server, cloud upload, analytics, advertising, or remote executable code.</li>
+        </ol>
+        <p class="independent-note">Independent community project—not affiliated with or endorsed by Procare.</p>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

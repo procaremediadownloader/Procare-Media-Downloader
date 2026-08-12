@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Procare Media Downloader</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1b2233;
+    --muted: #5b6478;
+    --rule: #e3e7f0;
+    --accent: #2f52c8;
+    --card: #f6f8fc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151c;
+      --fg: #e6e9f2;
+      --muted: #9aa3b8;
+      --rule: #262c39;
+      --accent: #8fa8f5;
+      --card: #191d26;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+    max-width: 44rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  h1 { margin: 0 0 6px; font-size: 1.9rem; line-height: 1.2; }
+  h2 { margin: 2.2rem 0 .6rem; font-size: 1.15rem; }
+  .effective { margin: 0 0 2rem; color: var(--muted); font-size: .92rem; }
+  ul { padding-left: 1.3rem; }
+  li { margin-bottom: .4rem; }
+  a { color: var(--accent); }
+  hr { margin: 2.8rem 0 1.4rem; border: 0; border-top: 1px solid var(--rule); }
+  footer { color: var(--muted); font-size: .9rem; }
+  .contact {
+    margin: 2rem 0 0; padding: 14px 16px;
+    background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+    font-size: .95rem;
+  }
+  .contact strong { display: block; margin-bottom: 3px; }
+</style>
+</head>
+<body>
+  <h1>Privacy Policy</h1>
+  <p class="effective">Procare Media Downloader &middot; Effective date: August 10, 2026</p>
+
+  <p>Procare Media Downloader helps a user save photos and videos that are already available through the user's signed-in Procare family account.</p>
+
+  <h2>Data the extension handles</h2>
+  <p>The extension temporarily reads:</p>
+  <ul>
+    <li>the Procare session token already stored by Procare in the active browser tab;</li>
+    <li>the children available to that signed-in account;</li>
+    <li>daily-activity responses needed to locate authorized photo and video files; and</li>
+    <li>the media URLs and basic identifiers needed to name and download those files.</li>
+  </ul>
+  <p>This processing is necessary for the extension's single purpose. The session token is used only for HTTPS requests to Procare's API and is not written to extension storage.</p>
+
+  <h2>Data stored locally</h2>
+  <p>The extension stores a local list of media identifiers and download timestamps so that it can avoid downloading the same item twice. It also stores the latest download status. Users can clear this information from the extension.</p>
+
+  <h2>Data collection and sharing</h2>
+  <p>The extension developer does not collect, receive, sell, share, or remotely store user data. The extension has no analytics, telemetry, advertising, developer API, cloud storage, or license service.</p>
+  <p>Media files travel directly from the HTTPS locations supplied by Procare to the user's computer. Procare and the media-hosting providers used by Procare process those requests under their own policies.</p>
+
+  <h2>Retention</h2>
+  <p>The developer retains no user information because no information is sent to the developer. Local extension history remains in the user's browser until the user clears it or removes the extension.</p>
+
+  <h2>Children's privacy</h2>
+  <p>Downloaded media may contain children other than the account holder's child. Users are responsible for storing and sharing downloaded media appropriately and complying with their childcare centre's policies.</p>
+
+  <h2>Changes</h2>
+  <p>Any future change that introduces data collection or additional data sharing must be disclosed prominently before release and reflected in this policy.</p>
+
+  <div class="contact">
+    <strong>Questions about this policy</strong>
+    <a href="mailto:freeprocaremediadownloader@gmail.com">freeprocaremediadownloader@gmail.com</a>
+  </div>
+
+  <hr>
+  <footer>
+    <p><a href="./">Procare Media Downloader</a> is an independent community project. It is not affiliated with, endorsed by, or sponsored by Procare Software or its affiliates.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Procare Media Downloader</title>
+<meta name="description" content="A privacy-first Chrome extension that saves the photos and videos already shared with your Procare family account straight to your own computer.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1b2233;
+    --muted: #5b6478;
+    --rule: #e3e7f0;
+    --accent: #2f52c8;
+    --card: #f6f8fc;
+    --good: #2f9e5f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151c;
+      --fg: #e6e9f2;
+      --muted: #9aa3b8;
+      --rule: #262c39;
+      --accent: #8fa8f5;
+      --card: #191d26;
+      --good: #56c98a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+    max-width: 46rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+  .mark {
+    display: grid; place-items: center;
+    width: 46px; height: 46px; flex: none;
+    border-radius: 13px; background: #3157d5; color: #fff;
+    font-size: 26px; font-weight: 700;
+  }
+  h1 { margin: 0; font-size: 1.75rem; line-height: 1.2; }
+  .tagline { margin: 0 0 2rem; color: var(--muted); }
+  h2 { margin: 2.4rem 0 .7rem; font-size: 1.15rem; }
+  a { color: var(--accent); }
+  ul.checks { margin: 0; padding: 0; list-style: none; }
+  ul.checks li { display: flex; gap: 10px; margin-bottom: .55rem; }
+  ul.checks svg { flex: none; margin-top: 6px; }
+  ol { padding-left: 1.3rem; }
+  ol li { margin-bottom: .45rem; }
+  .card {
+    margin: 1.4rem 0 0; padding: 16px 18px;
+    background: var(--card); border: 1px solid var(--rule); border-radius: 10px;
+  }
+  .card p { margin: 0; }
+  .card p + p { margin-top: .6rem; }
+  hr { margin: 3rem 0 1.4rem; border: 0; border-top: 1px solid var(--rule); }
+  footer { color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="mark" aria-hidden="true">&darr;</div>
+    <h1>Procare Media Downloader</h1>
+  </header>
+  <p class="tagline">Save the photos and videos already shared with your Procare family account straight to your own computer.</p>
+
+  <h2>What it does</h2>
+  <p>Sign in to Procare the way you normally do, pick a child and a date range, and start the download. Files are saved to your own Downloads folder, sorted by child and month. Anything saved on an earlier run is skipped rather than downloaded twice, so a long archive can be paused and picked up later.</p>
+
+  <h2>What it does not do</h2>
+  <ul class="checks">
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color:var(--good)"><path d="M20 6 9 17l-5-5"/></svg> No analytics, telemetry, advertising, or tracking of any kind.</li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color:var(--good)"><path d="M20 6 9 17l-5-5"/></svg> No cloud storage and no developer server. Your files never pass through anyone else.</li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color:var(--good)"><path d="M20 6 9 17l-5-5"/></svg> Never asks for your password. It uses the session you already created by signing in to Procare yourself.</li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color:var(--good)"><path d="M20 6 9 17l-5-5"/></svg> No access to any website other than Procare.</li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color:var(--good)"><path d="M20 6 9 17l-5-5"/></svg> No remote code. Everything it runs ships inside the extension package.</li>
+  </ul>
+
+  <h2>Privacy</h2>
+  <p>The full <a href="privacy.html">privacy policy</a> explains exactly what the extension reads, what it stores on your own machine, and why none of it reaches a developer.</p>
+
+  <h2>Please be thoughtful with what you download</h2>
+  <div class="card">
+    <p>Photos shared by a childcare centre often include children other than your own. Store them carefully, and do not repost images of other people's children without their families' permission.</p>
+    <p>Follow whatever policy your centre has on sharing media.</p>
+  </div>
+
+  <h2>Source code</h2>
+  <p>The complete source is published at <a href="https://github.com/procaremediadownloader/Procare-Media-Downloader">github.com/procaremediadownloader/Procare-Media-Downloader</a> so anyone can verify the claims on this page.</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:freeprocaremediadownloader@gmail.com">freeprocaremediadownloader@gmail.com</a></p>
+
+  <hr>
+  <footer>
+    <p>Procare Media Downloader is an independent community project. It is not affiliated with, endorsed by, or sponsored by Procare Software or its affiliates. "Procare" is used only to describe what the extension works with.</p>
+  </footer>
+</body>
+</html>

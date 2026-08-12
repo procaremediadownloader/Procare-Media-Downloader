@@ -75,9 +75,10 @@ nothing:
    window — that is exactly what a reviewer sees.
 3. Use that URL in the listing's privacy-policy field.
 
-Keep the hosted copy byte-identical to `PRIVACY.md` and re-publish whenever that
-file changes. GitHub renders Markdown on Pages only with a theme configured, so
-either add a minimal `_config.yml` or publish an HTML copy of the policy.
+`privacy.html` and `index.html` at the repo root are the published pages, and
+`.nojekyll` makes Pages serve them as static files with no build step.
+`PRIVACY.md` remains the source of truth — **any edit there must be mirrored into
+`privacy.html`**, which is what reviewers and parents actually read.
 
 A public gist also works and is faster to set up, but the URL is an opaque hash
 and looks less legitimate on a store listing.

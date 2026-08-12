@@ -35,4 +35,10 @@ Downloaded media may contain children other than the account holder's child. Use
 
 ## Changes
 
-Any future change that introduces data collection or additional data sharing must be disclosed prominently before release and reflected in this policy.
+No future version of this extension will introduce data collection, tracking, analytics, or data sharing. That is a commitment about every release still to come, not a description of the current version only.
+
+If Procare changes its service so that this tool cannot work without collecting or transmitting data, the project will be shut down rather than changed to allow it.
+
+This extension will also not be sold or transferred to another publisher, because a new owner could ship an update that breaks the commitments above.
+
+The wording of this policy may be clarified over time, but never in a way that weakens those commitments.

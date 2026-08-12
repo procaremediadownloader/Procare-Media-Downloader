@@ -8,7 +8,10 @@ this file is the running order.
 
 - [ ] Bump `version` in `extension/manifest.json` if 0.3.1 was already uploaded.
 - [ ] Run `tools/package.sh` and note which ZIP it built.
-- [ ] Have the privacy-policy URL ready — see **Hosting the privacy policy**.
+- [x] Privacy-policy URL — **live**:
+      `https://procaremediadownloader.github.io/Procare-Media-Downloader/privacy.html`
+- [x] Homepage URL — **live**:
+      `https://procaremediadownloader.github.io/Procare-Media-Downloader/`
 - [ ] Have the tester email list ready (the Google account each parent signs into
       Chrome with — not necessarily the address Procare has on file).
 - [ ] Decide the support email shown publicly on the listing.
@@ -66,22 +69,20 @@ Skip this if you already have a developer account.
 The URL must open for a reviewer who is not signed in to anything. A link that
 requires a login will fail review.
 
-Because this repository is public, GitHub Pages is the simplest route and costs
-nothing:
+**Done.** GitHub Pages is enabled on `main` / root and both pages are live and
+verified reachable without any login:
 
-1. **Settings → Pages**, source `Deploy from a branch`, branch `main`, folder
-   `/ (root)`.
-2. Wait for the first build, then confirm the policy loads in a private browsing
-   window — that is exactly what a reviewer sees.
-3. Use that URL in the listing's privacy-policy field.
+- Policy: `https://procaremediadownloader.github.io/Procare-Media-Downloader/privacy.html`
+- Homepage: `https://procaremediadownloader.github.io/Procare-Media-Downloader/`
+
+If either ever 404s, check **Settings → Pages** is still pointed at `main` /
+`/ (root)`, and confirm in a private browsing window — that is exactly what a
+reviewer sees.
 
 `privacy.html` and `index.html` at the repo root are the published pages, and
 `.nojekyll` makes Pages serve them as static files with no build step.
 `PRIVACY.md` remains the source of truth — **any edit there must be mirrored into
 `privacy.html`**, which is what reviewers and parents actually read.
-
-A public gist also works and is faster to set up, but the URL is an opaque hash
-and looks less legitimate on a store listing.
 
 ## Notes on the alternatives
 

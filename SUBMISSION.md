@@ -35,7 +35,12 @@ Skip this if you already have a developer account.
    archive and do not upload the whole project folder — only `extension/` is
    packaged, which `tools/package.sh` handles.
 5. **Store listing** tab — paste the name, summary, description, and category
-   from `STORE_LISTING.md`. Upload both PNGs from `store-assets/`.
+   from `STORE_LISTING.md`. Upload both screenshot PNGs from `store-assets/`.
+   For the **128x128 store icon**, use `store-assets/store-icon-128.png`, which
+   matches the icon shipped inside the extension so the store and the toolbar
+   agree. `store-assets/store-icon-128-padded.png` is the same art at 96x96
+   centred in the 128x128 frame, kept only in case a reviewer asks for the older
+   padded style.
 6. **Privacy** tab:
    - Single-purpose description → the one line in `STORE_LISTING.md`.
    - A justification for each of `activeTab`, `downloads`, `storage`, and both

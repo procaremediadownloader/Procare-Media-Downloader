@@ -65,6 +65,19 @@ node tests/background.integration.test.js
 Procare fixture — anything touching the real API has to be checked by hand in a
 signed-in tab with the Network panel open, per `SECURITY.md`.
 
+After a real run, audit what actually landed on disk:
+
+```sh
+tools/check-downloads.py            # defaults to ~/Downloads/Procare Family Media
+```
+
+It flags the failure the unit tests cannot see: `scoreMediaCandidate` in
+`shared.js` picks a media URL by scoring key names, so a payload shape it does not
+expect yields **thumbnails downloaded as if they were originals**, with every
+count reporting success. The script also reports folder layout, zero-byte files,
+duplicate contents (which would mean the skip-already-saved history is broken),
+and Chrome `uniquify` suffixes indicating filename collisions.
+
 ## Screenshots
 
 `store-assets/render.sh` re-renders both 1280x800 PNGs through headless Chrome.

@@ -83,25 +83,55 @@ Save photos and videos already available to the user's signed-in Procare family 
 
 ## Permission justifications
 
-### `activeTab`
+Paste each verbatim into its own box in the console's Privacy tab. The console
+presents **one combined box for both host permissions**, not one per host.
+Character counts are against the 1,000-character limit per box.
 
-Used when the user opens the extension to confirm that the active tab is Procare and communicate with that tab. It does not provide ongoing access to unrelated tabs.
+### `activeTab` — 661/1000
 
-### `downloads`
+```text
+The extension acts only on the tab the user is already viewing, and only after they click the toolbar icon. When the popup opens it confirms the active tab is the Procare family website, then exchanges messages with the content script in that tab to list the children on the account and to start or cancel a download the user asked for. activeTab is what allows the popup to identify and communicate with that single user-selected tab. It grants no ongoing access to other tabs, no browsing history, and no access at all before the user clicks. activeTab was chosen instead of the broader "tabs" permission specifically to keep this scope as narrow as possible.
+```
 
-Required to save the Procare media selected by the user into organized folders within Chrome's Downloads location.
+### `downloads` — 798/1000
 
-### `storage`
+```text
+Saving files to the user's own computer is the entire purpose of this extension, and chrome.downloads is the only API that can do it. For each photo or video the user requested, chrome.downloads.download writes the file to a relative path such as "Procare Family Media/<child>/2026-03/2026-03-14_12345.jpg" inside the user's normal Downloads folder, so a large archive stays organised by child and month.
 
-Stores media identifiers and timestamps locally so the extension can avoid duplicate downloads, plus the current progress state. It never stores the Procare authentication token or full activity responses.
+chrome.downloads.onChanged and chrome.downloads.search are used to detect whether each file completed or was interrupted. That completion signal is what makes the queue sequential and resumable: only files Chrome confirms as complete are recorded, so re-running a date range skips them instead of creating duplicates. No download is ever started without the user pressing the download button.
+```
 
-### `https://schools.procareconnect.com/*`
+### `storage` — 791/1000
 
-Required to run the user interface integration only on Procare's family website and use the session created when the user signs in directly to Procare.
+```text
+chrome.storage.local holds two small pieces of data, both required for the single purpose.
 
-### `https://api-school.procareconnect.com/*`
+First, a list of identifiers for media already downloaded, each with a completion timestamp, so re-running a date range skips files the user already has rather than downloading them twice. This is essential because a multi-year archive is typically downloaded across several sessions.
 
-Required to request the list of authorized children and media activity records needed for the download feature.
+Second, the current progress state — counts of saved, skipped and failed files plus a status message — so the popup can display progress and recover if it is closed and reopened mid-run.
+
+The Procare session token is never written to storage. No daily-activity responses, media files, names, or captions are cached. The user can erase everything stored with the "Clear local download history" button in the popup.
+```
+
+### Host permissions (combined box) — 931/1000
+
+```text
+Two Procare hosts are requested and both are required for the single purpose.
+
+https://schools.procareconnect.com/* is where the content script runs. This is the site the parent signs in to directly, and the extension reuses the session that already exists in that tab rather than asking for credentials. It is also the only origin from which the service worker will accept a download request.
+
+https://api-school.procareconnect.com/* is Procare's own parent API. The extension makes exactly two kinds of authenticated GET request: /parent/kids/ to list the children on the account so the user can choose one, and /parent/daily_activities/ over the chosen date range to locate the photo and video files that account is already permitted to see.
+
+No other host is requested. Media files are retrieved by chrome.downloads from the HTTPS URLs Procare returns, which requires no host permission, and no data is sent to any third party.
+```
+
+### Remote code
+
+Select **"No, I am not using Remote code."** If a justification box still appears:
+
+```text
+All executable code ships inside the package: popup.js, content.js, shared.js and background.js. There are no external script tags, no remotely hosted modules, no eval and no new Function. The manifest sets content_security_policy.extension_pages to "script-src 'self'; object-src 'none'", so the browser itself blocks loading any script from outside the package.
+```
 
 ## Privacy questionnaire guidance
 

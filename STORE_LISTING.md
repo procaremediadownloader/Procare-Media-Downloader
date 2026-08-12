@@ -79,7 +79,15 @@ Questions: freeprocaremediadownloader@gmail.com
 
 ## Single purpose
 
-Save photos and videos already available to the user's signed-in Procare family account directly to the user's computer.
+Paste verbatim into the console's single-purpose box (772/1000 characters).
+
+```text
+Single purpose: save photos and videos that are already available to the user's signed-in Procare family account onto the user's own computer.
+
+Every part of the extension serves that one function. The popup exists only to choose which child, which date range, and whether to include photos, videos, or both. The two Procare API requests exist only to list the children on the account and to locate the media files within the chosen dates. Local storage exists only to remember which files were already saved, so a long archive can be resumed without downloading anything twice.
+
+There is no second feature. The extension does not message anyone, export activity or billing records, edit or organise media beyond naming the saved files, share anything, or upload anything.
+```
 
 ## Permission justifications
 
